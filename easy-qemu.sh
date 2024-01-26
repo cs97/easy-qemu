@@ -18,8 +18,7 @@ case $1 in
 			-m 10G -smp 4 \
 			--bios /usr/share/edk2-ovmf/OVMF_CODE.fd \
 			-hda $2 -boot d -cdrom $3 \
-			-netdev user,id=net0,net=10.1.0.0/16,dhcpstart=10.1.0.2 \
-			-device e1000,netdev=net0 -vga qxl -device AC97;;
+			-vga qxl -device AC97 \
 
 	# boot_disk system.qcow2 
 	"boot_disk") 
@@ -28,8 +27,7 @@ case $1 in
 			-m 10G -smp 4 \
 			--bios /usr/share/edk2-ovmf/OVMF_CODE.fd \
 			-hda $2 \
-			-netdev user,id=net0,net=10.1.0.0/16,dhcpstart=10.1.0.2 \
-			-device e1000,netdev=net0 -vga qxl -device AC97;;
+			-vga qxl -device AC97 \
 
 	# boot_live isofile.iso
 	"boot_live") 
@@ -38,8 +36,7 @@ case $1 in
 			-m 10G -smp 4 \
 			--bios /usr/share/edk2-ovmf/OVMF_CODE.fd \
 			-boot d -cdrom $2 \
-			-netdev user,id=net0,net=10.1.0.0/16,dhcpstart=10.1.0.2 \
-			-device virtio-net-pci,netdev=net0 -vga qxl -device AC97;;
+			-vga qxl -device AC97 \
 
 	*)
 		echo "usage:"
